@@ -50,40 +50,40 @@ It shows the distance of a random variable from its mean. It is calcualted as
 # Program :
 DEVELOPED BY:Ajay karthick M
 Reg no:212225040014
-
-import numpy as np 
-# Input: Enter the number of arrivals separated by space 
-L = [int(i) for i in input("Enter arrival data: ").split()] 
-N = len(L) 
-M = max(L) 
-x = [] 
-f = [] 
-# Counting frequency of each arrival 
-for i in range(M + 1): 
-c = 0 
-for j in range(N): 
-if L[j] == i: 
-c += 1 
-f.append(c) 
-x.append(i) 
-sf = np.sum(f) 
-# Calculating probability for each occurrence 
-p = [f[i] / sf for i in range(M + 1)] 
-# Mean of arrival (expected value) 
-mean = np.inner(x, p) 
-# Second moment (E[X²]) 
-EX2 = np.inner(np.square(x), p) 
-# Variance and standard deviation 
-var = EX2 - mean**2 
-SD = np.sqrt(var) 
-print(f"The Mean arrival rate is {mean:.3f}") 
-print(f"The Variance of arrival from feeder is {var:.3f}") 
+```
+import numpy as np
+L = [int(i) for i in input("Enter arrival data: ").split()]
+N = len(L)
+M = max(L)
+X = []
+f = []
+for i in range(M + 1):
+    c = 0
+    for j in range(N):
+        if L[j] == i:
+            c += 1 
+    f.append(c)
+    X.append(i)
+sf = np.sum(f)
+p = [f[i] / sf for i in range(M + 1)]
+mean = np.inner(X, p)
+EX2 = np.inner(np.square(X), p)
+var = EX2 - mean**2
+SD = np.sqrt(var)
+print("\nX\tp(x)")
+for i in range(M + 1):
+    if f[i] > 0:   # Only print arrivals that actually occurred 
+        print(f"{X[i]}\t{p[i]:.3f}")
+print(f"\nThe Mean arrival rate is {mean:.3f}")
+print(f"The Variance of arrival from feeder is {var:.3f}")
 print(f"The Standard deviation of arrival from feeder is {SD:.3f}")
+```
 # Output : 
 
 Refer to the following images to view the output of the program
 
-<img width="971" height="86" alt="image" src="https://github.com/user-attachments/assets/cb6fed2e-c199-479a-9434-eece737de71f" />
+<img width="1460" height="858" alt="image" src="https://github.com/user-attachments/assets/763108cf-e2d2-4ce7-9660-272fe5a1a4e5" />
+
 
 
 # Results :
