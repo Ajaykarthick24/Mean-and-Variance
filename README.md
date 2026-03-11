@@ -51,63 +51,39 @@ It shows the distance of a random variable from its mean. It is calcualted as
 DEVELOPED BY:Ajay karthick M
 Reg no:212225040014
 
-import numpy as np
-
-# Input: Enter the number of arrivals separated by space
-L = [int(i) for i in input("Enter arrival data: ").split()]
-
-N = len(L)
-M = max(L)
-X = []
-f = []
-
-# Counting frequency of each arrival
-for i in range(M + 1):
-    c = 0
-    for j in range(N):
-        if L[j] == i:
-            c += 1
-    f.append(c)
-    X.append(i)
-
-sf = np.sum(f)
-
-# Calculating probability for each occurrence
-p = [f[i] / sf for i in range(M + 1)]
-
-# Mean of arrival (expected value)
-mean = np.inner(X, p)
-
-# Second moment (E[X²])
-EX2 = np.inner(np.square(X), p)
-
-# Variance and standard deviation
-var = EX2 - mean**2
-SD = np.sqrt(var)
-
-# Printing X and p(x)
-print("\nX\tp(x)")
-for i in range(M + 1):
-    if f[i] > 0:   # Only print arrivals that actually occurred
-        print(f"{X[i]}\t{p[i]:.3f}")
-
-print(f"\nThe Mean arrival rate is {mean:.3f}")
-print(f"The Variance of arrival from feeder is {var:.3f}")
+import numpy as np 
+# Input: Enter the number of arrivals separated by space 
+L = [int(i) for i in input("Enter arrival data: ").split()] 
+N = len(L) 
+M = max(L) 
+x = [] 
+f = [] 
+# Counting frequency of each arrival 
+for i in range(M + 1): 
+c = 0 
+for j in range(N): 
+if L[j] == i: 
+c += 1 
+f.append(c) 
+x.append(i) 
+sf = np.sum(f) 
+# Calculating probability for each occurrence 
+p = [f[i] / sf for i in range(M + 1)] 
+# Mean of arrival (expected value) 
+mean = np.inner(x, p) 
+# Second moment (E[X²]) 
+EX2 = np.inner(np.square(x), p) 
+# Variance and standard deviation 
+var = EX2 - mean**2 
+SD = np.sqrt(var) 
+print(f"The Mean arrival rate is {mean:.3f}") 
+print(f"The Variance of arrival from feeder is {var:.3f}") 
 print(f"The Standard deviation of arrival from feeder is {SD:.3f}")
-
 # Output : 
 
 Refer to the following images to view the output of the program
 
-<img width="490" height="170" alt="image" src="https://github.com/user-attachments/assets/4e645c61-c032-434a-b651-a265ac9f5337" />
-
-<img width="490" height="256" alt="image" src="https://github.com/user-attachments/assets/6359aa49-01fa-4afc-bd74-0f1ac4989bd4" />
-
-<img width="491" height="175" alt="image" src="https://github.com/user-attachments/assets/af4a92e5-4448-467e-8700-a50f1817ab43" />
-
-<img width="490" height="201" alt="image" src="https://github.com/user-attachments/assets/4ec555e2-1cd9-4d7a-9661-de1dbe54cd34" />
-
-<img width="487" height="164" alt="image" src="https://github.com/user-attachments/assets/0da44d73-3486-4c4e-90db-1026017d2485" />
+<img width="971" height="86" alt="image" src="https://github.com/user-attachments/assets/cb6fed2e-c199-479a-9434-eece737de71f" />
 
 
 # Results :
